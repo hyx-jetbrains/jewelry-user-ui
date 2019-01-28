@@ -1,0 +1,14 @@
+<scroll-view scroll-y="true" style="height: {{clientHeight?clientHeight+'px':'auto'}};">
+<!-- <image src="https://zq.muyaonet.com/{{articleContent.image}}" bindload="imageLoad" class="logo"/> -->
+<view class="contentsss">
+	<view class="titles">
+		<text>{{articleContent.title}}</text> 
+	</view>
+	<view class="subtitle">
+		<text> {{articleContent.short_title}}</text>
+	</view>
+     <view class="contentss">
+     	 <rich-text nodes="{{contents}}"></rich-text>
+     </view>
+</view>
+</scroll-view>

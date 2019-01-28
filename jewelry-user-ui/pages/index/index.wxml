@@ -1,0 +1,280 @@
+<!--搜索框-->
+<view class="page-top">
+    <view class="searchs">
+       <navigator url="/pages/search/search" hover-class="none">
+        <view class="searches">
+            <image src="../../images/banners/search.png" mode="widthFix" class="explores"></image>
+        </view>
+       </navigator>
+    </view>
+    <!--一级商品列表-->
+    <view class="list-top">
+      <view wx:for="{{goodsList}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" data-variable="{{item.category_id}}" wx:key="unique" bindtap="navbarTap">
+        <text>{{item.category_name}}</text>  
+      </view>
+    </view>
+</view>
+
+<!--精选页面-->
+<view class="containere" hidden="{{currentTab!==0}}">
+   <scroll-view scroll-y="true" scroll-top="0" style="height: {{clientHeight?clientHeight+'px':'auto'}}">
+    <!--滚动图片-->
+    <view class="containers">
+    	<swiper indicator-dots="{{indicatorDots}}"
+      autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="height:{{Height}}">
+        <block wx:for="{{imgUrls}}">
+          <navigator url="/pages/goodsdetails/goodsdetails?id={{item.adv_url}}" style="width:100%; display:flex" hover-class="none">
+          <swiper-item>
+            <image src="https://zq.muyaonet.com/{{item.adv_image}}" bindload="imgHeight" class="slide-image"/>
+          </swiper-item>
+          </navigator>
+        </block>
+      </swiper>
+    </view>
+ <!--大循环的地方-->
+    <blcok wx:for="{{goodsListess}}" wx:for-index="idx" wx:for-item="itemName">
+        <view class="ser-list">
+               <view class="titles">
+                   <view class="lefts">
+                      <view class="leftLine"></view>
+                      <image src="../../images/index/ju.png"></image>
+                   </view>
+                   <view class="big-title">
+                       <text>{{itemName.category_banner_title}}</text>
+                   </view>
+                   <view class="leftss">
+                      <image src="../../images/index/ju.png"></image>
+                      <view class="leftLines"></view>
+                   </view>
+               </view>
+               <view class="subtitle">
+                 {{itemName.category_banner_title}}
+               </view>
+
+                 <!-- <image src="https://zq.muyaonet.com/{{itemName.category_banner}}" bindload="imageLoad" data-index="{{index}}" style="width:100%; height:{{imageheight}}rpx;"></image> -->
+                <view class="imgess">
+                <image src="https://zq.muyaonet.com/{{itemName.category_banner}}" mode="widthFix" data-index="{{index}}" style="width:100%;"></image>
+              </view>
+
+
+              <view class="ser-lists">  
+       <blcok wx:for="{{itemName.goods_list}}" wx:for-index="idx" wx:for-item="itemNames"> 
+                 <view class="goods">
+                     <navigator url="/pages/goodsdetails/goodsdetails?id={{itemNames.goods_id}}" hover-class="none">
+                     <view class="img">
+                         <image src="https://zq.muyaonet.com/{{itemNames.pic_cover_small}}" mode="widthFix" class="img-one"/>
+                       </view>
+                      <view class="title">
+                         {{itemNames.goods_name}}
+                      </view>
+                      <view class="price">
+                           ¥ {{itemNames.price}}
+                      </view>
+                    </navigator>
+                  </view>
+          </blcok>
+  </view>
+             
+          </view>
+     </blcok>
+</scroll-view>
+</view>
+
+<!--设计系列-->  
+<view hidden="{{currentTab!==1}}"> 
+ <!--二级商品列表-->
+  <scroll-view scroll-y="true" style="height:{{clientHeight?clientHeight+'px':'auto'}}">
+    <view class="xilitLists">
+        <view class="xilielists">
+           <blcok wx:for="{{goodsLists}}" wx:for-index="idx" wx:for-item="itemNames">
+            <view class="listimgtext">
+              <navigator url="/pages/goodslist/goodslist?category_id={{itemNames.category_id}}" hover-class="none">
+                <image src="http://zq.muyaonet.com/{{itemNames.category_pic}}" mode="widthFix"></image>
+                <view class="tilexx">
+                  {{itemNames.category_name}}
+                </view>
+              </navigator>
+            </view>
+          </blcok>
+        </view>
+    </view>
+     <!--具体的商品的列表即大循环的地方-->
+    <blcok wx:for="{{goodsListess}}" wx:for-index="idx" wx:for-item="itemName">
+  
+        <view class="ser-list">           
+               <view class="titles">
+                   <view class="lefts">
+                      <view class="leftLine"></view>
+                      <image src="../../images/index/ju.png"></image>
+                   </view>
+                   <view class="big-title">
+                       <text>{{itemName.category_banner_title}}</text>
+                   </view>
+                   <view class="leftss">
+                      <image src="../../images/index/ju.png"></image>
+                      <view class="leftLines"></view>
+                   </view>
+               </view>
+               <view class="subtitle">
+                   {{itemName.category_banner_long_title}}
+               </view>
+               <view class="imgess">
+                 <image src="https://zq.muyaonet.com/{{itemName.category_banner}}"  mode="widthFix"  data-index="{{index}}" style="width:100%;"></image>
+              </view>
+          
+                    <!-- <image src="https://zq.muyaonet.com/{{itemName.category_banner}}" bindload="imgHeight" data-index="{{index}}" style="width:100%; height:{{imageheight}}rpx; display:blcok;"></image>
+ -->
+                     <!-- <image src="https://zq.muyaonet.com/{{itemName.category_banner}}" bindload="imageLoad" data-index="{{index}}" style="width:100%; height:{{imageheight}}rpx;"></image> -->
+               
+              <view class="ser-lists">  
+       <blcok wx:for="{{itemName.goods_list}}" wx:for-index="idx" wx:for-item="itemNames"> 
+                 <view class="goods">
+                     <navigator url="/pages/goodsdetails/goodsdetails?id={{itemNames.goods_id}}" hover-class="none">
+                     <view class="img">
+                         <image src="https://zq.muyaonet.com/{{itemNames.pic_cover_mid}}" mode="widthFix" class="img-one"/>
+                       </view>
+                      <view class="title">
+                         {{itemNames.goods_name}}
+                      </view>
+                      <view class="price">
+                           ¥ {{itemNames.price}}
+                      </view>
+                    </navigator>
+                  </view>
+          </blcok>
+  </view>
+          </view>
+
+   
+     </blcok>
+</scroll-view>
+
+</view>  
+
+<!--高级珠宝-->  
+<view hidden="{{currentTab!==2}}">  
+     <!--列表-->
+  <scroll-view scroll-y="true" style="height:{{clientHeight?clientHeight+'px':'auto'}}">
+    
+    <view class="xilitLists">
+        <view class="xilielists">
+            <blcok wx:for="{{goodsLists}}" wx:for-index="idx" wx:for-item="itemNames">
+            <view class="listimgtext">
+              <navigator url="/pages/goodslist/goodslist?category_id={{itemNames.category_id}}" hover-class="none">
+                <image src="http://zq.muyaonet.com/{{itemNames.category_pic}}" mode="widthFix"></image>
+                <view class="tilexx">
+                  {{itemNames.category_name}}
+                </view>
+              </navigator>
+            </view>
+          </blcok>
+        </view>
+    </view>
+
+     <blcok wx:for="{{goodsListess}}" wx:for-index="idx" wx:for-item="itemName">
+        <view class="ser-list">
+               <view class="titles">
+                   <view class="lefts">
+                      <view class="leftLine"></view>
+                      <image src="../../images/index/ju.png"></image>
+                   </view>
+                   <view class="big-title">
+                       <text>{{itemName.category_banner_title}}</text>
+                   </view>
+                   <view class="leftss">
+                      <image src="../../images/index/ju.png"></image>
+                      <view class="leftLines"></view>
+                   </view>
+               </view>
+               <view class="subtitle">
+                   {{itemName.category_banner_long_title}}
+               </view>
+
+                    <!-- <image src="https://zq.muyaonet.com/{{itemName.category_banner}}" bindload="imageLoad" data-index="{{ index }}" style="width:100%; height:{{imageheight}}rpx;"></image> -->
+                   <view class="imgess">
+                     <image src="https://zq.muyaonet.com/{{itemName.category_banner}}" mode="widthFix" data-index="{{ index }}" style="width:100%;"></image>
+                   </view>
+              <view class="ser-lists">  
+       <blcok wx:for="{{itemName.goods_list}}" wx:for-index="idx" wx:for-item="itemNames"> 
+                 <view class="goods">
+                     <navigator url="/pages/goodsdetails/goodsdetails?id={{itemNames.goods_id}}" hover-class="none">
+                     <view class="img">
+                         <image src="https://zq.muyaonet.com/{{itemNames.pic_cover_mid}}" mode="widthFix" class="img-one"/>
+                       </view>
+                      <view class="title">
+                         {{itemNames.goods_name}}
+                      </view>
+                      <view class="price">
+                           ¥ {{itemNames.price}}
+                      </view>
+                    </navigator>
+                  </view>
+          </blcok>
+  </view>
+          </view>
+     </blcok>
+
+
+
+</scroll-view>
+
+</view> 
+<!--私人定制--> 
+
+<!--<view hidden="{{currentTab!==3}}"> 
+  <scroll-view scroll-y="true" style="height:{{clientHeight?clientHeight+'px':'auto'}}">   
+    <view class="xilitLists">
+        <view class="xilielists">           
+          <blcok wx:for="{{goodsLists}}" wx:for-index="idx" wx:for-item="itemNames">
+            <view class="listimgtext">
+             <navigator url="/pages/goodslist/goodslist?category_id={{itemNames.category_id}}" hover-class="none">
+                <image src="http://zq.muyaonet.com/{{itemNames.category_pic}}" mode="widthFix"></image>
+                <view class="tilexx">
+                  {{itemNames.category_name}}
+                </view>
+              </navigator>
+            </view>
+          </blcok>          
+        </view>
+    </view>
+     <blcok wx:for="{{goodsListess}}" wx:for-index="idx" wx:for-item="itemName">
+        <view class="ser-list">
+             <view class="titles">
+                 <view class="lefts">
+                    <view class="leftLine"></view>
+                    <image src="../../images/index/ju.png"></image>
+                 </view>
+                 <view class="big-title">
+                     <text>{{itemName.category_banner_title}}</text>
+                 </view>
+                 <view class="leftss">
+                    <image src="../../images/index/ju.png"></image>
+                    <view class="leftLines"></view>
+                 </view>
+             </view>
+             <view class="subtitle">
+                 {{itemName.category_banner_long_title}}
+             </view>
+                  <image src="https://zq.muyaonet.com/{{itemName.category_banner}}"  mode="widthFix" data-index="{{ index}}" style="width:100%; height:{{imageheight}}rpx;"></image>
+              <view class="ser-lists">  
+       <blcok wx:for="{{itemName.goods_list}}" wx:for-index="idx" wx:for-item="itemNames"> 
+                 <view class="goods">
+                     <navigator url="/pages/goodsdetails/goodsdetails?id={{itemNames.goods_id}}" hover-class="none">
+                     <view class="img">
+                         <image src="https://zq.muyaonet.com/{{itemNames.pic_cover_mid}}" mode="widthFix" class="img-one"/>
+                       </view>
+                      <view class="title">
+                         {{itemNames.goods_name}}
+                      </view>
+                      <view class="price">
+                           ¥ {{itemNames.price}}
+                      </view>
+                    </navigator>
+                  </view>
+          </blcok>
+  </view>
+          </view>
+     </blcok>
+</scroll-view>
+
+</view> -->

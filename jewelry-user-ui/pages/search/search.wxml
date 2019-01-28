@@ -1,0 +1,23 @@
+<!--搜索框-->
+    <view class="searchess">
+	    <view class="searchs">	
+	        <view class="searches">
+	            <image src="../../images/icon/icon-search.png" class="explore"></image>
+	            <input class="inputs" placeholder="要找什么" bindconfirm="bindSearch"/>
+	        </view>
+	        <view class="cancel" bindtap="cancel">
+	        	取消
+	        </view>
+	    </view>
+
+    </view>
+
+
+
+
+
+
+
+
+
+

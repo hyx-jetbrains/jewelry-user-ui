@@ -1,0 +1,205 @@
+/*收货地址*/
+.page{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+.addr{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1rpx red solid;
+  align-items: center;
+}
+
+.addr navigator {
+  display:flex;
+  width:100%;
+  flex-direction: column;
+}
+
+.logistics{
+  width: 90%;
+  margin-left: 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.logisticsPeople{
+  width: 25%;
+  display: flex;
+  flex-direction: row;
+}
+.inputs{
+  width: 25%;
+  display: flex;
+}
+.tel{
+  width: 50%;
+  display: flex;
+  font-size: 35rpx;
+}
+.logisticsAddr{
+  width: 90%;
+  display: flex;
+  margin-left: 5%;
+  flex-direction: row;
+  font-size: 35rpx;
+  justify-content: center;
+  align-items: center;
+}
+.logisticsAddrs{
+  display: flex;
+  width: 29%;
+}
+.logisticsAddrsName{
+  display: flex;
+  width: 75%;
+}
+
+/*.addrs{
+  width: 40%;
+  height: 100rpx;
+  display: flex;
+  font-size: 35rpx;
+}*/
+/*商城的名字*/
+.shop-name{
+  width: 100%;
+  height: auto;
+  font-size:40rpx;
+  border-top: 12rpx solid red;
+}
+.shop-names{
+  margin-left: 3%;
+}
+
+/*商品列表*/
+.separate{
+  width: 100%;
+  background-color: red;
+  height: 2rpx;
+}
+.cart_container{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.item-image{
+  width: 40%;
+  margin-left: 5%;
+  height: 200rpx;
+  display: flex;
+}
+.goodes{
+  width: 60%;
+  margin-left: 5%;
+  height: 200rpx;
+  display: flex;
+  flex-direction: column;
+}
+.title{
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+}
+.column{
+  width: 100%;
+  height: 100rpx;
+  margin-top: 100rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.row{
+  width: 50%;
+  height: auto;
+  display: flex;
+}
+.account{
+  width: 50%;
+  height: auto;
+  display: flex;
+}
+
+/*备注*/
+.remarks{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.rmark{
+  color: red;
+  width: 40%;
+  display: flex;
+}
+.remarkes{
+  display: flex;
+  width: 60%;
+
+}
+
+
+
+/*运费和商品总额*/
+.freight-accounts{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+.freight{
+  width: 70%;
+  margin-left: 15%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  color: red;
+  font-size: 30rpx;
+  justify-content: space-between;
+}
+
+
+
+
+/*底部的内容*/
+.bottom_line {
+  width: 100%;
+  height: 2rpx;
+  background: lightgray;
+}
+.bottom_total {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  bottom: 0;
+  width: 100%;
+  height: 120rpx;
+  line-height: 120rpx;
+  background: white;
+}
+.button-red {
+  background-color: #f44336; /* 红色 */
+}
+button {
+  position: fixed;
+  right: 0;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  font-size: 30rpx;
+  border-radius: 0rpx;
+  width: 30%;
+  height: 120rpx;
+  line-height: 120rpx;
+}

@@ -1,0 +1,113 @@
+<view class="add">
+ <form bindsubmit="formSubmit">  
+	<view class="inputes">
+		<view class="per">
+			<text>联系人:</text>
+		</view>
+	    <view class="inputs">
+	    	<input name="userName" placeholder="姓名"/>
+        </view>
+    </view>
+   <view class="lines"></view>
+
+    <view class="inputes">
+		<view class="per">
+			<text>手机号:</text>
+		</view>
+	    <view class="inputs">
+	    	<input name="tel" placeholder="11位手机号码"/>
+        </view>
+    </view>
+    <view class="lines"></view>
+
+    <view class="inputes">
+		<view class="per">
+			<text>邮编号:</text>
+		</view>
+	    <view class="inputs">
+	    	<input name="zipCode" placeholder="邮编"/>
+        </view>
+    </view>
+    <view class="lines"></view>
+    
+
+    <view class="inputes">
+
+		<view class="per">
+			<text>省市区:</text>
+		</view>
+		
+    <view class="inputs" bindtap="selectDistrict">
+      <view wx:if="{{areaInfo==null}}"> 点击选择</view>
+      <view wx:if="{{areaInfo!=null}}"> {{areaInfo}}</view>
+
+    </view>
+    
+     <view class="dialog-mask " style="visibility:{{isVisible ? 'visible': 'hidden'}}" bindtap="hideMenuTap " />
+
+
+<view class="dialog-mask " style="z-index:11;visibility:{{addressMenuIsShow ? 'visible': 'hidden'}}" bindtap="hideCitySelected" />
+<!--城市三级联动-->
+<view class="picker-view" animation="{{animationAddressMenu}}" style="visibility:{{addressMenuIsShow ? 'visible':'hidden'}}">
+  <view style="height:10% ;width:95%;margin-top:10rpx">
+    <text catchtap="cityCancel">取消</text>
+    <text style="float: right" catchtap="citySure">确定</text>
+  </view>
+  <!--"可以显示默认的城市，使用后级联选择城市反应很慢就不使用了-->
+  <picker-view style="width: 100%; height: 300px;" bindchange="cityChange" name="provincesss" value="{{value}}" wx:key="">
+    
+    <picker-view-column>
+       <view wx:for="{{provinces}}" class="picker-item">
+       <!-- <view wx:for="{{provinces}}" class="picker-item">-->
+        {{item.province_name}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{citys}}" class="picker-item" wx:key="">
+        {{item.city_name}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{areas}}" class="picker-item" wx:key="">
+        {{item.district_name}}</view>
+    </picker-view-column>
+  </picker-view>
+
+</view>
+        
+    </view>
+
+    <view class="lines"></view>
+
+    <view class="inputes">
+		<view class="per">
+			<text>详细地址:</text>
+		</view>
+	    <view class="inputs">
+	    	<input name="addrDetail" placeholder="详细地址"/>
+        </view>
+    </view>
+    <view class="lines"></view>
+
+    
+    <view class="keeps">
+    	<button form-type="submit" size="default">保存 </button>
+    </view>
+
+    <view class="keep">
+    	<button size="default" bindtap="cancel">取消 </button>
+    </view>
+  </form>
+</view>
+
+
+
+
+<!-- <view class="container">
+ 
+  <view style="position:fixed ;top:40%;box-sizing:border-box;padding:20rpx;text-align:center;width:100%">
+    <view style="padding-bottom:20rpx">{{areaInfo}}</view>
+    <button bindtap="selectDistrict">选择城市</button>
+  </view>
+</view> -->
+
+
+

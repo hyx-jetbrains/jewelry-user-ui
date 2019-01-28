@@ -1,0 +1,33 @@
+<view class="containers">
+	<view class="contact01">
+	    <text>联系电话</text>
+	</view>
+	<view class="contact02">
+	   服务时间：{{connect.tel_time}}
+    </view>
+    <view class="contact03" bindtap="tel" id="{{connect.phone}}">
+			{{connect.phone}}
+    </view>
+</view>
+
+<view class="containers">
+	
+    
+	<view class="contact01">
+	    在线客服
+	</view>
+	<view class="contact02">
+	 服务时间：{{connect.online_time}}
+    </view>
+
+  <view class="kefu">
+  	 <view class="kefus">
+	  <contact-button class="contact" type="default-light" size="12" session-from="weapp"></contact-button>
+	  </view>
+  	 <view class="contact03">
+				点击在线客服
+	 </view>
+  	
+	   
+   </view>
+</view>

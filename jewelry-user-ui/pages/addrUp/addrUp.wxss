@@ -1,0 +1,104 @@
+.add{
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	z-index: 2;
+}
+
+form{
+	width: 90%;
+	height: auto;
+
+}
+
+.inputes{
+	width: 90%;
+	height: 10%;
+	display: flex;
+	flex-direction: row;
+	padding-top: 5%;
+}
+.lines{
+	width: 100%;
+	height: 2rpx;
+    margin-top: 3%;
+	background-color: #F5F5F5;
+}
+.per{
+	width: 30%;
+	display: flex;
+	color: #333333;
+}
+.inputs{
+	width: 70%;
+	display: flex;
+	color: #666666;
+}
+.keeps{
+	width: 98%;
+	height: 5%;
+	margin-top: 3%;
+    display: flex;
+    justify-content: center;	
+}
+
+.keeps button{
+	width: 100%;
+	height: 100%;
+	background-color: #C59F60;
+	color: #FFFFFF;
+}
+
+.keep{
+	width: 98%;
+	height: auto;
+	margin-top: 3%;
+}
+
+.keep button{
+	width: 100%;
+	height: 100%;
+	background-color: #EBE7D0;
+	color: #C2A66B;
+}
+
+/*省市联机操作*/
+.container {
+  display: block;
+  background-color: #fafafa;
+  padding: 0;
+}
+
+.dialog-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 8;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.picker-view {
+  width: 100%;
+  display: flex;
+  z-index:12;
+  background-color: #fff;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  height: 40vh;
+}
+
+.picker-item {
+  line-height: 70rpx;
+  margin-left: 5rpx;
+  margin-right: 5rpx;
+  text-align: center;
+}

@@ -1,0 +1,189 @@
+<view class="addr">
+   <navigator url="/pages/addr/addr">
+      <view class="logistics">
+        <view class="inputs">
+          <text>利总</text>
+        </view>
+        <view class="tel">
+          <text>13512345678</text>
+        </view>
+      </view>
+      <view class="logisticsAddr">
+        <view class="logisticsAddrs">
+           <text>收货地址:</text>
+        </view>
+        <view class="logisticsAddrsName">
+            <text>北京市 朝阳区 望京soho201</text>
+        </view>
+      </view>
+   </navigator>
+  <!--  <image src="../../images/icon/arrow.png"/> -->
+</view>
+
+<view class="shop-name">
+  <view class="shop-names">
+      <text>订单号:</text>
+  </view>
+  <view class="shop-names">
+      <text>12345678900</text>
+  </view>
+</view>
+
+<view class="shop-name">
+  <view class="shop-names">
+      <text>商品信息:</text>
+  </view>
+  
+</view>
+
+<scroll-view class="scroll" scroll-y="true" style="height:900rpx">
+  <view class="separate"></view>
+ <!--  <view wx:for="{{carts}}"> -->
+    <view class="cart_container">
+          <image class="item-image" src="../../images/shoppingcar.png"/>
+          <view class="goodes">
+             <view class="title">
+                  <text>海洋系的项链一种</text>
+              </view>
+              <view class="column">
+                  <view class="row">
+                    <text class="sku-price">￥ 123</text>
+                  </view>
+                  <view class="account">
+                    <text>x 23</text>
+                  </view>
+              </view>
+          </view>
+
+    </view>
+    <view class="separate"></view>
+     <view class="cart_container">
+          <image class="item-image" src="../../images/shoppingcar.png"/>
+          <view class="goodes">
+             <view class="title">
+                  <text>海洋系的项链一种</text>
+              </view>
+              <view class="column">
+                  <view class="row">
+                    <text class="sku-price">￥ 123</text>
+                  </view>
+                  <view class="account">
+                    <text>x 23</text>
+                  </view>
+              </view>
+          </view>
+
+    </view>
+    <view class="separate"></view>
+     <view class="cart_container">
+          <image class="item-image" src="../../images/shoppingcar.png"/>
+          <view class="goodes">
+             <view class="title">
+                  <text>海洋系的项链一种</text>
+              </view>
+              <view class="column">
+                  <view class="row">
+                    <text class="sku-price">￥ 123</text>
+                  </view>
+                  <view class="account">
+                    <text>x 23</text>
+                  </view>
+              </view>
+          </view>
+
+    </view>
+    <view class="separate"></view>
+
+     <view class="cart_container">
+          <image class="item-image" src="../../images/shoppingcar.png"/>
+          <view class="goodes">
+             <view class="title">
+                  <text>海洋系的项链一种</text>
+              </view>
+              <view class="column">
+                  <view class="row">
+                    <text class="sku-price">￥ 123</text>
+                  </view>
+                  <view class="account">
+                    <text>x 23</text>
+                  </view>
+              </view>
+          </view>
+
+    </view>
+    <view class="separate"></view>
+     <view class="cart_container">
+          <image class="item-image" src="../../images/shoppingcar.png"/>
+          <view class="goodes">
+             <view class="title">
+                  <text>海洋系的项链一种</text>
+              </view>
+              <view class="column">
+                  <view class="row">
+                    <text class="sku-price">￥ 123</text>
+                  </view>
+                  <view class="account">
+                    <text>x 23</text>
+                  </view>
+              </view>
+          </view>
+
+    </view>
+    <view class="separate"></view>
+     <view class="cart_container">
+          <image class="item-image" src="../../images/shoppingcar.png"/>
+          <view class="goodes">
+             <view class="title">
+                  <text>海洋系的项链一种</text>
+              </view>
+              <view class="column">
+                  <view class="row">
+                    <text class="sku-price">￥ 123</text>
+                  </view>
+                  <view class="account">
+                    <text>x 23</text>
+                  </view>
+              </view>
+          </view>
+
+    </view>
+    <view class="separate"></view>
+    
+    <!--运费和总计-->
+<view class="freight-accounts">
+  <view class="freight">
+    <view class="freights">
+      <text>运费</text>
+    </view>
+    <view class="freightes">
+      <text>快递包邮</text>
+    </view>
+  </view>
+  <!--总计-->
+  <view class="freight">
+    <view class="freights">
+      <text>商品总额</text>
+    </view>
+    <view class="freightes">
+      <text>6666</text>
+    </view>
+  </view>
+</view>
+<view class="dibu" style="height:120rpx"></view>
+</scroll-view>
+
+
+
+<view class="bottom_total">
+  <view class="bottom_line"></view>
+
+  <view class="row">
+  
+  <!-- <icon type="circle" class="item-allselect"/>-->
+   
+   <!--  <text class="small_text">全选</text> -->
+    <text>合计:￥ </text>
+    <text class="price">50</text>
+    <button class="button-red" bindtap="toBuy" formType="submit">去支付</button>
+  </view>
+</view>

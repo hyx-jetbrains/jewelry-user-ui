@@ -1,0 +1,120 @@
+ <scroll-view scroll-y="true" style="height: {{clientHeight?clientHeight+'px':'auto'}}">
+<!--商品的滚动图片-->
+<view class="goodsGun">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="height:{{Height}}">
+    <block wx:for="{{goodsDetail.img_list}}">
+      <swiper-item>
+        <image class="imgBanner" src="http://zq.muyaonet.com/{{item.pic_cover}}" bindload="imgHeight" mode="widthFix" bindtap="previewImage"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+
+  <scroll-view scroll-y="true">
+  <view class="detail">
+    <view class="title">{{goodsDetail.goods_name}}</view>
+    <view class="pricesess">￥{{goodsDetail.promotion_price}}</view>
+  </view>
+</scroll-view>
+  <view class="separate"></view>
+ 
+
+  
+ <view class="tabs"> 
+     <view class="swiper-tab">
+        <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">商品介绍</view>
+        <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">正品保障</view>
+        <view class="swiper-tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="clickTab">购买须知</view>
+    </view>
+   
+
+   <swiper current="{{currentTab}}" duration="300"  style="height: {{clientHeight?clientHeight+'px':'auto'}}"  bindchange="swiperTab">
+        <swiper-item >
+          <scroll-view scroll-y="true" style="height: {{clientHeight?clientHeight+'px':'auto'}}">
+            <view class="contentdes">
+           <rich-text nodes="{{goodsDetail.description}}"></rich-text>
+           </view>
+         </scroll-view>
+         </swiper-item>  
+        <swiper-item>
+           <scroll-view scroll-y="true" style="height: {{clientHeight?clientHeight+'px':'auto'}}">
+             <view class="contentdes">
+          <rich-text nodes="{{goodsDetail.productguarantee}}"></rich-text>
+        </view>
+        </scroll-view>
+        </swiper-item>
+        <swiper-item>
+           <scroll-view scroll-y="true" style="height: {{clientHeight?clientHeight+'px':'auto'}}">
+             <view class="contentdes">
+             <rich-text nodes="{{goodsDetail.purchasenotice}}"></rich-text>
+           </view>
+           </scroll-view>
+        </swiper-item>
+    </swiper>
+ </view> 
+
+  <view class="temp"></view>
+
+
+</scroll-view>
+
+
+
+
+
+
+<!--屏幕背景变暗的背景  -->
+   <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view> 
+  <!--弹出框  -->
+   <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
+    <view class="pages">
+         <view class="prices">
+             <view class="price">
+                   单价:
+             </view>
+             <view class="pricees">       
+                  ¥ {{goodsDetail.promotion_price}}
+             </view>
+         </view>
+          <view class="prices">
+             <view class="price">
+                   库存:
+             </view>
+             <view class="pricees01">
+                  {{goodsDetail.stock}}件
+             </view>
+         </view> 
+         <view class="prices">
+             <view class="price">
+                    数量:
+             </view>
+             <view class="pricees02">
+                <view class="{{minusStatus}} jian" bindtap="bindMinus">-</view>  
+            
+                <view class="inputnums">
+                  
+                    {{num}}
+                </view>  
+               
+                <view class="normal" bindtap="bindPlus">+</view> 
+             </view>
+         </view>
+
+         <view class="btn" bindtap="btn" id="{{addCars}}">
+             选好了
+         </view> 
+    </view>
+  </view>
+<!-- 底部悬浮栏 -->
+ <view class="detail-nav">
+  <image bindtap="toCar" src="../../images/banners/gouwuche.png"/>
+  <view class="line_nav"></view>
+   <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="opacity:0;position:absolute;top:30rpx;left:200rpx; ">  
+    </contact-button>  
+    <image class="icon_kf" src="../../images/banners/wechat.png"></image>
+  <button class="button-green" open-type="getUserInfo" bindtap="addCar" formType="submit">加入购物车</button>
+  <button class="button-red" open-type="getUserInfo" bindtap="immeBuy" formType="submit">立即购买</button>
+</view> 
+
+

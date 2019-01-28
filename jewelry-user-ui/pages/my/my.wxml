@@ -1,0 +1,44 @@
+<view class="containers">
+
+ <view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+</view>
+
+
+  <view class="navs">
+    <block wx:for-items="{{orderItems}}" wx:key="name">
+     <navigator url="/pages/order/order?id={{item.typeId}}" hover-class="none">
+        <image src="{{item.imageurl}}" mode="widthFix" class="nav-image" />
+        <view class="nav-text">{{item.name}}</view>
+    </navigator>
+    </block>
+  </view>
+
+  <view class="person-list">
+     <navigator url="/pages/addrShow/addrShow" hover-class="none">
+      <view class="list-item">
+           <text class="item-text">我的地址</text>
+           <image class="item-image" src="../../images/icon/arrow.png"></image>
+      </view>
+    </navigator>
+    
+     <!-- <view class="line"></view> -->
+    <!--  <view class="line"></view> -->
+     
+    <navigator url="/pages/officialService/officialService" hover-class="none" style="display:flex;width:100%;">
+       <view class="list-item">
+          <text class="item-text">官方客服</text>
+          <image class="item-image" src="../../images/icon/arrow.png"></image>
+      </view>
+    </navigator>
+     
+    
+  </view>
+  <view class="separate"></view>
+</view>

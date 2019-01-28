@@ -1,0 +1,66 @@
+<view class='cartMain'>
+   <block wx:if="{{cartItems==''}}">
+       <view class="container"> 
+           <view class="usermotto">
+            <text class="user-motto">  购物车空空如也</text>
+          </view>
+      </view>  
+   </block>
+
+    <view wx:for="{{cartItems}}">
+        <view data-id="{{item.id}}"  class='cart-box' data-index="{{index}}">
+               <!--判断-->
+                <view class='icon'>
+                    <icon wx:if="{{item.selected}}" type="success" color="#C89E5D" size="20" bindtap="selectedCart" data-index="{{index}}" />
+                    <icon wx:else type="circle" bindtap="selectedCart" size="20" data-index="{{index}}"/>
+                </view>
+                <view class='left_imgae'>
+                    <image class="cart-image" src="https://zq.muyaonet.com//{{item.picture_info.pic_cover_mid}}" mode="widthFix"></image>
+                </view>
+                
+               
+               <view class="bigDetail">
+                  <view class="bigTitle">
+                      <view class="cart-titles">{{item.goods_name}}</view>
+                       <view class="imgRight"  bindtap="cartdel" data-index="{{item.cart_id}}">
+                           <image src="../../images/icon/cancel.png"></image>
+                       </view>
+                  </view>
+                  <view class="subtitle">
+                      {{item.sku_name}}
+                  </view>
+                  <view class="cartPriceNum">
+                       <view class="cart-prices">
+                            ￥{{item.price}}
+                       </view>
+                      <view class="goodsNum">
+                           X {{item.num}}
+                      </view>
+                  </view>
+                  
+                   
+               </view>
+
+          
+            <!-- 底部 -->
+            <view class="cart-bottom">
+                <icon wx:if="{{CheckAll}}"  class="cart-icon" type="success" color="#C89E5D" size="20" bindtap="select" data-index="{{index}}" />
+                <icon wx:else type="circle"   class="cart-icon" size="20" bindtap="select" data-index="{{index}}"/>
+                <text class='checkAll'>全选</text>
+
+                <view class='cart-pay'>
+                  <text class='cart_pay' bindtap="go" data-id="{{item.id}}">提交订单</text>
+                </view>
+
+                <view class='cart-sum'>
+                    <text class='cart_sum'>
+                        <text class='sum_text'>合计：</text>
+                        <text class='sum_color'>￥{{total}}元</text>
+                    </text>
+                </view>
+            </view>
+            
+
+          </view>
+      </view>
+</view>

@@ -1,0 +1,215 @@
+page{
+  background-color: #F5F5F5;
+  width: 100%;
+  height: 100%;
+}
+.usermotto {
+  margin-top: 100px;
+}
+/*单个的商品*/
+.cart-box{
+  width: 100%;
+  padding-top: 5%;
+  padding-bottom: 3%;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.icon{
+  width: 5%;
+  height: auto;
+}
+.left_imgae{
+  width: 30%;
+  height: auto;
+}
+.left_imgae image{
+  width: 90%;
+  height: 230rpx;
+  margin-top: 5%;
+}
+
+/*左侧的详情*/
+.bigDetail{
+  width: 70%;
+  height: auto;
+  padding-top:5%; 
+  display: flex;
+  flex-direction: column;
+}
+  
+.bigTitle{
+   width: 80%;
+   height: auto;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+}
+.imgRight image{
+   width: 20rpx;
+  height: 20rpx;
+ /* margin-left: 70%;*/
+}
+
+.subtitle{
+  width: 80%;
+  height: 10%;
+  display: flex;
+  flex-direction: row;
+}
+.cartPriceNum{
+  width: 50%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.cart-prices{
+  color: #C89E5D;
+  font-size: 40rpx;
+  
+}
+
+/*.cart_main{
+  width: 40%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+.cart-title{
+  font-size: 40rpx;
+  color: #333333; 
+}
+.cart-titlefu{
+  color: #999999;
+  margin-top: 2%;
+  font-size: 30rpx;
+}
+.cart-price{
+  color: #C89E5D;
+  font-size: 40rpx;
+  margin-top: 20%;
+}
+*/
+
+/*.rigths{
+  width: 35%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+.rigths image{
+  width: 20rpx;
+  height: 20rpx;
+  margin-left: 70%;
+}
+
+
+.counts{
+  width: 80%;
+  height: auto;
+  margin-top: 53%;
+  display: flex;
+  flex-direction: row;
+}*/
+/*.subtraction{
+  width: 55%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border:1rpx solid #999999;
+}*/
+/*.inputes{
+  width: 40%;
+  height: auto;
+  border-top: 1rpx solid #999999;
+  border-bottom: 1rpx solid #999999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}*/
+/*.inputss{
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333333;
+  font-size: 35rpx;
+}*/
+/*.addition{
+  width: 55%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border:1rpx solid #999999;
+}
+*/
+
+/*底部的东西*/
+.cart-bottom{
+  position: fixed;
+  width: 100%;
+  height: 87rpx;
+  bottom:0;
+  background: #F5F5F5;
+}
+.yuan{
+  display: block;
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  border: 1px solid red;
+}
+.icon{
+  float: left;
+  margin: 85rpx 20rpx;
+}
+.SpCart{
+  display: block;
+  width: 300rpx;
+  height: 300rpx;
+}
+.Sptext{
+  font-size: 30rpx;
+}
+.cart-icon{
+  margin:18rpx 20rpx;
+  float: left;
+}
+.cart-sum{
+  width: 300rpx;
+  height: 100%;
+  line-height: 87rpx;
+  /* background: red; */
+  float: right;
+  text-align: center;
+}
+.cart-pay{
+  width: 230rpx;
+  height: 100%;
+  background: #C89E5D;
+  float: right;
+}
+.cart_pay{
+  display: block;
+  line-height: 87rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #FFFFFF;
+}
+.sum_color{
+  color: red;
+  font-size: 25rpx;
+}
+.sum_text{
+  font-size: 30rpx;
+}
+.checkAll{
+  line-height: 87rpx;
+  font-size: 28rpx;
+}
+

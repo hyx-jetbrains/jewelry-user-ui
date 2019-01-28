@@ -1,0 +1,127 @@
+<!--搜索框-->
+<view class="page-top">
+    <view class="searchs">
+        <view class="searches">
+            <image src="../../images/icon/icon-search.png" class="explore"></image>
+            <input class="inputs" placeholder="找单品" bindconfirm="bindSearch"/>
+        </view>
+    </view>
+    
+    <!--一级商品列表-->
+    <view class="list-top">
+      <view wx:for="{{navbars}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" data-variable="{{item.id}}" wx:key="unique" bindtap="navbarTap">
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+</view>
+
+<!--默认-->
+<view class="containere" hidden="{{currentTab!==0}}"> 
+   <scroll-view scroll-y="true" style="height: {{clientHeight?clientHeight+'px':'auto'}}">
+  
+ <view class="ser-list">  
+       <blcok wx:for="{{goodsList}}" wx:for-index="idx" wx:for-item="itemName"> 
+                 <view class="goods">
+                     <navigator url="/pages/goodsdetails/goodsdetails?id={{itemName.goods_id}}" hover-class="none">
+                     <view class="img">
+                         <image src="https://zq.muyaonet.com/{{itemName.pic_cover_mid}}" mode="widthFix" class="img-one"/>
+                       </view>
+                      <view class="title">
+                         <text>{{itemName.goods_name}}</text>
+                      </view>
+                      <view class="introduction">
+                         <text>{{itemName.introduction}}</text>
+                      </view>
+                      <view class="price">
+                           ¥ {{itemName.price}}
+                      </view>
+                    </navigator>
+                  </view>
+          </blcok>
+  </view>
+
+
+</scroll-view>
+</view>
+
+<!--销售量-->  
+<view hidden="{{currentTab!==1}}"> 
+  <scroll-view scroll-y="true" style="height:{{clientHeight?clientHeight+'px':'auto'}}">
+    
+    <view class="ser-list">  
+ <blcok wx:for="{{goodsList}}" wx:for-index="idx" wx:for-item="itemName"> 
+           <view class="goods">
+               <navigator url="/pages/goodsdetails/goodsdetails?id={{itemName.goods_id}}" hover-class="none">
+               <view class="img">
+                   <image src="https://zq.muyaonet.com/{{itemName.pic_cover_mid}}" class="img-one" mode="widthFix"/>
+                 </view>
+                <view class="title">
+                   <text>{{itemName.goods_name}}</text>
+                </view>
+                <view class="price">
+                     ¥ {{itemName.price}}
+                </view>
+              </navigator>
+            </view>
+    </blcok>
+          </view>
+          
+      
+
+</scroll-view>
+</view>  
+
+<!--新品-->  
+<view hidden="{{currentTab!==2}}">  
+     <!--列表-->
+  <scroll-view scroll-y="true" style="height:{{clientHeight?clientHeight+'px':'auto'}}">
+      <view class="ser-list">  
+ <blcok wx:for="{{goodsList}}" wx:for-index="idx" wx:for-item="itemName"> 
+           <view class="goods">
+               <navigator url="/pages/goodsdetails/goodsdetails?id={{itemName.goods_id}}" hover-class="none">
+               <view class="img">
+                   <image src="https://zq.muyaonet.com/{{itemName.pic_cover_mid}}" class="img-one" mode="widthFix"/>
+                 </view>
+                <view class="title">
+                   <text>{{itemName.goods_name}}</text>
+                </view>
+                <view class="price">
+                     ¥ {{itemName.price}}
+                </view>
+              </navigator>
+            </view>
+    </blcok>
+          </view>
+       
+
+
+
+
+</scroll-view>
+</view> 
+<!--价格-->  
+<view hidden="{{currentTab!==3}}">  
+ 
+  <scroll-view scroll-y="true" style="height:{{clientHeight?clientHeight+'px':'auto'}}">
+    
+   
+   <view class="ser-list">  
+ <blcok wx:for="{{goodsList}}" wx:for-index="idx" wx:for-item="itemName"> 
+           <view class="goods">
+               <navigator url="/pages/goodsdetails/goodsdetails?id={{itemName.goods_id}}" hover-class="none">
+               <view class="img">
+                   <image src="https://zq.muyaonet.com/{{itemName.pic_cover_mid}}" class="img-one" mode="widthFix"/>
+                 </view>
+                <view class="title">
+                   <text>{{itemName.goods_name}}</text>
+                </view>
+                <view class="price">
+                     ¥ {{itemName.price}}
+                </view>
+              </navigator>
+            </view>
+    </blcok>
+          </view>    
+</scroll-view>
+
+</view> 

@@ -1,0 +1,74 @@
+<view class="addr">
+   <navigator url="/pages/addrShow/addrShow?id={{addr.id}}">
+     <view class="addres">
+          <view class="addrs">
+              <view class="logistics">
+                  <view class="logisticsPeople">
+                     收货人:
+                  </view>
+                  <view class="inputs">
+                    {{addr.consigner}}
+                  </view>
+                  <view class="tel">
+                    {{addr.mobile}}
+                  </view>
+              </view>
+              <view class="logisticsAddr">
+                  <view class="logisticsAddrs">
+                      收货地址:
+                  </view>
+                  <view class="logisticsAddrsName">
+                      {{addr.address_info}}{{addr.address}}
+                  </view>
+              </view>
+          </view>
+          <image class="imgAddr" src="../../images/icon/arrow.png"></image>
+     </view>
+   </navigator>
+</view>
+
+<scroll-view class="scroll" scroll-y="true">
+  <block wx:for="{{goodsList}}">
+  <view class="goodsContent">
+       <image src="https://zq.muyaonet.com/{{item.picture_info.pic_cover_mid}}"></image>
+       <view class="goodsText">
+          <view class="goodsName">
+            <view class="goodsNames">
+              {{item.goods_name}}
+            </view>
+            <view class="goodsFu">
+              {{item.sku_name}}
+            </view>
+          </view>
+          <view class="prices">
+            <view class="price">
+              ￥ {{item.price}}
+            </view>
+            <view class="goodsCount">
+              X {{item.num}}
+            </view>
+          </view>
+
+       </view>
+    </view> 
+  <view class="separate"></view>
+</block>
+</scroll-view>
+
+<view class="bottom">
+  <view class="listContentList">
+      <view class="btnList">
+          <view class="textAccount">
+            合计:
+          </view>
+          <view class="textPrice">
+            ￥ {{nums}}
+          </view>
+      </view>
+      <view class="payChat" bindtap="pay">
+        微信支付
+      </view>
+  </view>
+</view>
+
+

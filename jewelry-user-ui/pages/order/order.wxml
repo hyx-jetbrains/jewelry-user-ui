@@ -1,0 +1,240 @@
+<view class="page-top">   
+    <!--列表-->
+    <view class="list-top">
+      <view wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">
+        <text>{{item}}</text>  
+      </view>
+    </view>
+</view>
+<!--全部订单-->
+<view class="containere" hidden="{{currentTab!==0}}">
+   <scroll-view scroll-y="true" style="height: {{clientHeight?clientHeight+'px':'auto'}}" class="scrolls">
+    <block wx:if="{{orderList==''}}">
+       <view class="container"> 
+           <view class="usermotto">
+            <text class="user-motto"> 暂无此类订单</text>
+          </view>
+      </view>  
+   </block>
+
+    <view class="ser-list"> 
+        <blcok wx:for="{{orderList}}" wx:for-index="idx" wx:for-item="itemName">
+           <view class="timesses">
+            <view class="times">
+                  <view class="timess">
+                      <view class="textTime">
+                        下单时间:
+                      </view>
+                      <view class="timeSpecific">
+                         {{itemName.times}}
+                      </view>
+                  </view>
+                  <view class="orderNm">
+                      <view class="textTime">
+                        订单号:
+                      </view>
+                      <view class="timeSpecific">
+                        {{itemName.order_no}}
+                      </view>
+                  </view>
+            </view>
+             <view class="waitemon">
+              {{itemName.status_name}}
+            </view>
+        </view>
+          <scroll-view scroll-x="true" class="srcllx">
+            <view class="listGoods">                   
+                 <blcok wx:for="{{itemName.order_item_list}}" wx:for-index="idx" wx:for-item="itemsName" class="goodsListBlock">
+                     <view class="list-goods">
+                        <image src="https://zq.muyaonet.com/{{itemsName.picture.pic_cover_small}}" class="list-one-img" mode="widthFix"/>
+                        <view class="goods-name">
+                            {{itemsName.goods_name}}
+                        </view>
+                             <view class="price">
+                                 ¥ {{itemsName.price}}
+                            </view>
+                    </view>
+                  </blcok>
+            </view>
+           </scroll-view>
+         
+ </blcok>
+ </view>
+   
+     
+</scroll-view>
+
+</view>
+
+<!--待付款-->  
+<view hidden="{{currentTab!==1}}" bindtap="gemstone">  
+  <scroll-view scroll-y="true" style="height: {{clientHeight?clientHeight+'px':'auto'}}">   
+
+     <block wx:if="{{orderList==''}}">
+       <view class="container"> 
+           <view class="usermotto">
+            <text class="user-motto"> 暂无此类订单</text>
+          </view>
+      </view>  
+   </block>
+
+      <view class="ser-list"> 
+        <blcok wx:for="{{orderList}}" wx:for-index="idx" wx:for-item="itemName">
+           <view class="timesses">
+            <view class="times">
+              <view class="timess">
+                  <view class="textTime">
+                    下单时间:
+                  </view>
+                  <view class="timeSpecific">
+                     {{itemName.times}}
+                  </view>
+              </view>
+              <view class="orderNm">
+                  <view class="textTime">
+                    订单号:
+                  </view>
+                  <view class="timeSpecific">
+                    {{itemName.order_no}}
+                  </view>
+              </view>
+            </view>
+             <view class="waitemon">
+              {{itemName.status_name}}
+            </view>
+        </view>
+   <scroll-view scroll-x="true" class="srcllx">
+            <view class="listGoods">                   
+                 <blcok wx:for="{{itemName.order_item_list}}" wx:for-index="idx" wx:for-item="itemsName" class="goodsListBlock">
+                     <view class="list-goods">
+                        <image src="https://zq.muyaonet.com/{{itemsName.picture.pic_cover_small}}" class="list-one-img" mode="widthFix"/>
+                        <view class="goods-name">
+                            {{itemsName.id.goods_name}}
+                        </view>
+                        <view class="price">
+                           ¥{{itemsName.price}}
+                        </view>
+                    </view>
+                  </blcok>
+              
+            </view>
+           </scroll-view>
+</blcok>
+</view>     
+</scroll-view>
+</view>  
+
+<!--待发货-->  
+  <view hidden="{{currentTab!==2}}" bindtap="gemstone">
+  <scroll-view scroll-y="true" style="height: {{clientHeight?clientHeight+'px':'auto'}}">    
+    <block wx:if="{{orderList==''}}">
+       <view class="container"> 
+           <view class="usermotto">
+            <text class="user-motto"> 暂无此类订单</text>
+          </view>
+      </view>  
+   </block>  
+    <view class="ser-list"> 
+        <blcok wx:for="{{orderList}}" wx:for-index="idx" wx:for-item="itemName">
+           <view class="timesses">
+            <view class="times">
+              <view class="timess">
+                  <view class="textTime">
+                    下单时间:
+                  </view>
+                  <view class="timeSpecific">
+                     {{itemName.times}}
+                  </view>
+              </view>
+              <view class="orderNm">
+                  <view class="textTime">
+                    订单号:
+                  </view>
+                  <view class="timeSpecific">
+                    {{itemName.order_no}}
+                  </view>
+              </view>
+            </view>
+             <view class="waitemon">
+              {{itemName.status_name}}
+            </view>
+        </view>
+
+        <scroll-view scroll-x="true" class="srcllx">
+            <view class="listGoods">                   
+                 <blcok wx:for="{{itemName.order_item_list}}" wx:for-index="idx" wx:for-item="itemsName" class="goodsListBlock">
+                     <view class="list-goods">
+                        <image src="https://zq.muyaonet.com/{{itemsName.picture.pic_cover_small}}" class="list-one-img" mode="widthFix"/>
+                        <view class="goods-name">
+                            {{itemsName.id.goods_name}}
+                        </view>
+                        <view class="price">
+                           ¥{{itemsName.price}}
+                        </view>
+                    </view>
+                  </blcok>
+              
+            </view>
+           </scroll-view>
+</blcok>
+</view>     
+   </scroll-view>
+</view> 
+<!--待收货-->
+ <view hidden="{{currentTab!==3}}" bindtap="gemstone"> 
+  <scroll-view scroll-y="true" style="height: {{clientHeight?clientHeight+'px':'auto'}}">
+   
+   <block wx:if="{{orderList==''}}">
+       <view class="container"> 
+           <view class="usermotto">
+            <text class="user-motto"> 暂无此类订单</text>
+          </view>
+      </view>  
+   </block> 
+
+    <view class="ser-list"> 
+        <blcok wx:for="{{orderList}}" wx:for-index="idx" wx:for-item="itemName">
+           <view class="timesses">
+            <view class="times">
+              <view class="timess">
+                  <view class="textTime">
+                    下单时间:
+                  </view>
+                  <view class="timeSpecific">
+                     {{itemName.times}}
+                  </view>
+              </view>
+              <view class="orderNm">
+                  <view class="textTime">
+                    订单号:
+                  </view>
+                  <view class="timeSpecific">
+                    {{itemName.order_no}}
+                  </view>
+              </view>
+            </view>
+             <view class="waitemon">
+              {{itemName.status_name}}
+            </view>
+        </view>
+
+      <scroll-view scroll-x="true" class="srcllx">
+            <view class="listGoods">                   
+                 <blcok wx:for="{{itemName.order_item_list}}" wx:for-index="idx" wx:for-item="itemsName" class="goodsListBlock">
+                     <view class="list-goods">
+                        <image src="https://zq.muyaonet.com/{{itemsName.picture.pic_cover_small}}" class="list-one-img" mode="widthFix"/>
+                        <view class="goods-name">
+                            {{itemsName.id.goods_name}}
+                        </view>
+                        <view class="price">
+                           ¥{{itemsName.price}}
+                        </view>
+                    </view>
+                  </blcok>            
+            </view>
+           </scroll-view>
+</blcok>
+</view>     
+
+</scroll-view>
+</view>

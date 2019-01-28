@@ -1,0 +1,183 @@
+page{
+	width: 100%;
+	height: 100%;
+	background-color: #F3F4F6;
+	display: flex;
+	flex-direction: column;
+}
+.usermotto {
+  margin-top: 100px;
+}
+
+.page-top{
+	width: 100%;
+	height: 10%;
+	z-index: 1;
+	background-color: #FFFFFF;
+ }
+
+.containere{
+   z-index: 2;
+   background-color: #F3F4F6;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+/*列表标题*/
+.list-top{
+	width: 96%;
+	height: auto;
+	margin-left: 2%;
+	margin-top: 2%;
+	padding-top: 2%;
+	padding-bottom: 2%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.list-top text{
+	width: 80%;
+}
+
+
+.list-top .item.active{  
+  color: #C49846;
+  border-bottom: 1rpx solid #C49846;
+  padding-bottom: 5rpx;
+}
+.list-title .item.active:after{  
+  content: "";  
+  display: block;  
+  position: absolute;  
+  bottom: 0;  
+  left: 0;  
+  right: 0;  
+  height: 4rpx;  
+  background: #C49846;  
+}  
+
+
+
+/*产品列表*/
+
+.ser-list{
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+}
+
+
+.timesses{
+	width: 100%;
+	height: 20%;
+	padding-top: 2%;
+	padding-bottom: 2%;
+	/*padding-left: 5%;*/
+	display: flex;
+	flex-direction: row;
+    margin-bottom: 2%;
+    background-color: #FFFFFF;
+    justify-content: center;
+    align-items: center;
+    /*border-bottom: 2rpx solid #F5F5F5;*/
+}
+.times{
+	width: 75%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+
+}
+.timess{
+	width: 100%;
+	height: auto;
+	margin-bottom: 3%;
+	display: flex;
+	flex-direction: row;
+	font-size: 35rpx;
+	justify-content: space-between;
+}
+.textTime{
+	width: 30%;
+
+	/*color: #666666;*/
+}
+.timeSpecific{
+	width: 70%;
+	/*margin-left: 3%;*/
+	color: #999999;
+}
+.orderNm{
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: row;
+	font-size: 35rpx;
+	
+}
+.waitemon{
+
+	display: flex;
+	/*margin-top: 2%;*/
+	color: #cc9966;
+}
+
+/*滚动图片*/
+
+.srcllx{
+	white-space: nowrap;
+	display: flex;
+	margin-bottom: 3%; 
+	background-color: #FFFFFF;
+
+}
+.listGoods{
+	width: 96%;
+	margin-left:2%;
+	display: inline-block;
+}
+/*.goodsListBlock{
+	width: 100%;
+	height: auto;
+	background-color: #FFFFFF;
+	margin-bottom: 3%;
+}*/
+
+.list-goods{
+	width: 25%;
+	height: auto;
+	margin-right: 3%;
+	padding-top: 3%;
+	padding-bottom: 5%;
+	display: inline-block;
+}
+
+.list-one-img{
+	width: 100%;
+	height: 150rpx;
+}
+.goods-name{
+	width: 100%;
+	display: flex;
+	/*justify-content: center;
+	align-items: center;*/
+	color: #999999;
+	font-size: 30rpx;
+}
+.price{
+	width: 100%;
+	display: flex;
+	margin-top: 2%;
+	color: #cc9966;
+	font-size: 30rpx;
+}
+
+
+
+
+

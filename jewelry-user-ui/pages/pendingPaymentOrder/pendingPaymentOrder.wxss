@@ -1,0 +1,227 @@
+/*收货地址*/
+.page{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #F5F4F5;
+}
+.addr{
+  width: 100%;
+  height: auto;
+  margin-bottom: 10%;
+  font-size: 30rpx;
+  margin-bottom: 5%;
+}
+.addr navigator{
+  width: 100%;
+  height: auto;
+  display: flex;
+}
+.addres{
+  width: 96%;
+  height: auto;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.addrs{
+  width: 90%;
+  height:auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3%;
+}
+
+.logistics{
+  width: 90%;
+  height: auto;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.logisticsPeople{
+  width: 25%;
+  height: auto;
+  display: flex;
+  color: #999999;  
+}
+.inputs{
+  width: 15%;
+  height: auto;
+  display: flex;
+  color: #333333;
+}
+.tel{
+  width: 50%;
+  height: auto;
+  color: #333333;
+}
+.logisticsAddr{
+  width: 90%;
+  height: auto;
+  font-size: 25rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.logisticsAddrs{
+  width: 27%;
+  height: auto;
+  display: flex;
+  color: #999999;
+}
+.logisticsAddrsName{
+  width: 73%;
+  height: auto;
+  display: flex;
+  color: #333333;
+}
+.imgAddr{
+  width: 45rpx;
+  height: 45rpx;
+  
+}
+
+
+.goodsContent{
+  width: 96%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.goodsContent image{
+  width: 30%;
+  height: 200rpx;
+  display: flex;
+}
+.goodsText{
+  width: 60%;
+  height: auto;
+  padding-left: 2%;
+  display: flex;
+  flex-direction: column;
+}
+.goodsName{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+.goodsNames{
+  width: 100%;
+  color: #333333;
+  font-size: 35rpx;
+}
+.goodsFu{
+  width: 100%;
+  margin-top: 2%;
+  color: #999999;
+  font-size: 20rpx;
+}
+
+
+.prices{
+  width: 100%;
+  height: auto;
+  margin-top: 16%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 35rpx;
+}
+.price{
+  width: 87%;
+  display: flex;
+  color: #C89F5F;
+}
+.goodsCount{
+  width: 13%;
+  display: flex;
+  color: #666666;
+}
+
+/*横线*/
+.separate{
+  width: 100%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  background-color: #EFEFEF;
+  height: 2rpx;
+}
+
+
+
+
+/*底部按钮*/
+.bottom{
+width: 100%;
+height:100rpx;
+bottom:0rpx;
+position:fixed;
+background-color: #F5F5F5;
+border-top: 1rpx solid #EFEFEF;
+}
+
+.listContentList{
+  width: 100%;
+  height: 100rpx;
+  background-color: #F4F4F4;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.btnList{
+  width: 70%;
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.textAccount{
+  width: 20%;
+  display: flex;
+  color: #333333;
+  margin-left: 3%;
+
+}
+.textPrice{
+  width: 50%;
+  color: #C89F5F;
+  display: flex;
+
+}
+
+.payChat{
+  width: 30%;
+  height: 100rpx;
+  display: flex;
+  color: #FFFFFF;
+  background-color: #C89E5E;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

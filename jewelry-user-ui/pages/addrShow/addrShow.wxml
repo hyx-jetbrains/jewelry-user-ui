@@ -1,0 +1,37 @@
+<view class="lists">
+   <blcok wx:for="{{addrList}}" wx:for-index="idx" wx:for-item="itemName">
+		<view class="list">
+			<!-- <navigator url="/pages/addrUp/addrUp?id={{itemName.id}}" hover-class="none"> -->
+	            <view class='icon'>
+	                <icon wx:if="{{itemName.is_default}}" type="success" color="#C89E5D" size="20" bindtap="selectedCart" data-index="{{idx}}" />
+	                <icon wx:else type="circle" bindtap="selectedCart" size="20" data-index="{{idx}}"/>
+	            </view>
+				<view class="content">
+					<view class="userTel">
+						<view class="userName">
+							{{itemName.consigner}}
+						</view>
+						<view class="tel">
+							{{itemName.mobile}}
+						</view>
+			        </view>
+			        <view class="addrs">
+				       收货地址:{{itemName.address_info}}{{itemName.address}}
+			        </view>
+				</view>
+			    <image class="imgPoint" src="../../images/icon/arrow.png"></image>
+           <!--  </navigator> -->
+
+		</view>
+   </blcok>
+
+</view>
+
+<!--底部的按钮-->
+<view class="bottomes">
+	<navigator url="/pages/addr/addr" hover-class="none" class="naaddr">
+	<view class="naniu">
+		添加地址
+	</view>
+	</navigator>
+</view>
