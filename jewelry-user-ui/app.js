@@ -1,4 +1,4 @@
-//app.js
+//app.js  
 App({
   onLaunch: function () {
     
@@ -6,10 +6,10 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        var urls="https://zq.muyaonet.com/index.php?s=/api/index/getUserCode"  //登录的url
+        var urls ="http://192.168.0.100:8888/wx-auth/xcx"  //登录的url
         wx.request({
                       url :urls,
-                      method : "POST",
+                      method : "GET",
                       //header: {'content-type': 'application/x-www-form-urlencoded'},
                       header: {'Content-Type': 'application/x-www-form-urlencoded'},
                       data: {
@@ -18,18 +18,24 @@ App({
                       success: function(reses){
                           //console.log(reses)
                           //返回值是session标签，需要保存到缓存中
-                          var session_key =reses.data.data.thirdSession.thirdSession
+                        
+                        var session_key = reses.data.data[1]
                           //console.log(session_key)
-                           //判断用户登录状态，如果是1 说明用户已经绑定过了
-                           var userStatus= reses.data.data.thirdSession.status
-                           //保存taoken 到缓存中
-                          wx.setStorageSync('userStatus', userStatus)
+                        var open_id = reses.data.data[0]
                           //保存taoken 到缓存中
                           wx.setStorageSync('sessions', session_key)
+                        wx.setStorageSync('openId', open_id)
                           //读取缓存中的数据（sessions）
                           //console.log('fdsafdsafdsafdsafdsafdas')
-                          var res = wx.getStorageSync('sessions')
-                          //console.log(res) 
+
+                        wx.setStorage({
+                          key: 'openId',
+                          data: reses.data.data[0]
+                        })
+                        wx.setStorage({
+                          key: 'sessions',
+                          data: reses.data.data[1]
+                        })
                       } 
                   })
       }
@@ -54,6 +60,7 @@ App({
       }
     })
   },
+
   globalData: {
     userInfo: null
   }

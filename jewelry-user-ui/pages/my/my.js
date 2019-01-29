@@ -5,7 +5,9 @@ Page({
     motto: 'Hello World',
      hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    
+    avatarUrl: "",
+    nickname: "点击登录",
+    isLogin: false,
     orderItems: [
       {
         typeId: 0,
@@ -70,5 +72,36 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  bindGetUserInfo(e) {
+    console.log(e)
+    if (e.detail.errMsg == "getUserInfo:ok") {
+      app.globalData.userInfo = e.detail.userInfo
+      wx.getStorage({
+        key: 'openId',
+        success: function (res) {
+          wx.request({
+            url: 'http://192.168.0.100:8888/wx-auth/xcx-userdetail',
+            header: {
+              'content-type': 'application/x-www-form-urlencoded'
+            },
+            method: "POST",
+            data: {
+              openid: res.data,
+              nickname: e.detail.userInfo.nickName,
+              headicon: e.detail.userInfo.avatarUrl,
+              gender: e.detail.userInfo.gender
+            }
+          })
+        },
+      })
+      this.setData(
+        {
+          avatarUrl: e.detail.userInfo.avatarUrl,
+          nickname: e.detail.userInfo.nickName,
+          isLogin: true
+        }
+      )
+    }
   }
 })
