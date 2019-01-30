@@ -9,7 +9,7 @@
     </view>
     <!--一级商品列表-->
     <view class="list-top">
-      <view wx:for="{{goodsList}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" data-variable="{{item.category_id}}" wx:key="unique" bindtap="navbarTap">
+      <view wx:for="{{goodsList}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" data-variable="{{item.category_name}}" wx:key="unique" bindtap="navbarTap">
         <text>{{item.category_name}}</text>  
       </view>
     </view>
@@ -18,7 +18,7 @@
 <!--精选页面-->
 <view class="containere" hidden="{{currentTab!==0}}">
    <scroll-view scroll-y="true" scroll-top="0" style="height: {{clientHeight?clientHeight+'px':'auto'}}">
-    <!--滚动图片-->
+       <!--滚动图片-->
     <view class="containers">
     	<swiper indicator-dots="{{indicatorDots}}"
       autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="height:{{Height}}">
@@ -60,7 +60,7 @@
               <view class="ser-lists">  
        <blcok wx:for="{{itemName.goods_list}}" wx:for-index="idx" wx:for-item="itemNames"> 
                  <view class="goods">
-                     <navigator url="/pages/goodsdetails/goodsdetails?id={{itemNames.goods_id}}" hover-class="none">
+                     <navigator url="/pages/goodsdetails/goodsdetails?id={{itemNames.id}}" hover-class="none">
                      <view class="img">
                          <image src="https://zq.muyaonet.com/{{itemNames.pic_cover_small}}" mode="widthFix" class="img-one"/>
                        </view>
@@ -129,12 +129,12 @@
               <view class="ser-lists">  
        <blcok wx:for="{{itemName.goods_list}}" wx:for-index="idx" wx:for-item="itemNames"> 
                  <view class="goods">
-                     <navigator url="/pages/goodsdetails/goodsdetails?id={{itemNames.goods_id}}" hover-class="none">
+                     <navigator url="/pages/goodsdetails/goodsdetails?id={{itemNames.id}}" hover-class="none">
                      <view class="img">
                          <image src="https://zq.muyaonet.com/{{itemNames.pic_cover_mid}}" mode="widthFix" class="img-one"/>
                        </view>
                       <view class="title">
-                         {{itemNames.goods_name}}
+                         {{itemNames.name}}
                       </view>
                       <view class="price">
                            ¥ {{itemNames.price}}
@@ -202,7 +202,7 @@
                          <image src="https://zq.muyaonet.com/{{itemNames.pic_cover_mid}}" mode="widthFix" class="img-one"/>
                        </view>
                       <view class="title">
-                         {{itemNames.goods_name}}
+                         {{itemNames.name}}
                       </view>
                       <view class="price">
                            ¥ {{itemNames.price}}

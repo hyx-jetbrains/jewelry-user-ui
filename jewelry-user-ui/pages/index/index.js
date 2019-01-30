@@ -13,7 +13,8 @@ Page({
     children:[],
     currentTab: 0,
     mode:'widthFix',
-    images:{}
+    images:{},
+    
   },
 
 imgHeight:function(e){
@@ -67,10 +68,11 @@ imgHeight:function(e){
         })
    },
 
-
+  
   onLoad: function (options) {
-    
+    var  domain ='http://localhost:8088/';
     var that = this
+ 
     //首页的banner 接口 滚动大图的
     var urls="https://zq.muyaonet.com/api/index/getBanner"  //banner接口地址       
       wx.request({
@@ -106,39 +108,40 @@ imgHeight:function(e){
       }
     });
     //一级分类列表的名字
-    var urls="https://zq.muyaonet.com/api/goods/goodsCategoryFirstList"       
+    var urls= domain + "product/goodsCategoryFirstList"  
+    // var urls="https://zq.muyaonet.com/api/goods/goodsCategoryFirstList"         
       wx.request({
           url :urls,
           method : "POST",
           header: {'content-type': 'application/x-www-form-urlencoded'},
           success: function(reses){
-              var goodsList = reses.data.data.niu_index_response              
+              var goodsList = reses.data.data           
               that.setData({
                  goodsList:goodsList
               })
             //详情商品列表
-           var urlsJing = 'https://zq.muyaonet.com/api/goods/getGoodsByBest'
-           wx.request({
-                  url :urlsJing,
-                  method : "POST",
-                  header: {'content-type': 'application/x-www-form-urlencoded'},
-                  data: {},
-                  success: function(reses){
-                      //console.log(reses)
-                      var goodsListess = reses.data.data.niu_index_response
-                      console.log(goodsListess)
-                      var arr =new Array()
-                      for(var i=0;i<goodsListess.length;i++){
-                           if(goodsListess[i].category_banner_id !==''){
-                                  arr[i] = goodsListess[i]
-                            }
-                      } 
-                      that.setData({
-                         goodsListess:arr
-                      })
+          //  var urlsJing = 'https://zq.muyaonet.com/api/goods/getGoodsByBest'
+          //  wx.request({
+          //         url :urlsJing,
+          //         method : "POST",
+          //         header: {'content-type': 'application/x-www-form-urlencoded'},
+          //         data: {},
+          //         success: function(reses){
+          //             //console.log(reses)
+          //             var goodsListess = reses.data.data.niu_index_response
+          //             console.log(goodsListess)
+          //             var arr =new Array()
+          //             for(var i=0;i<goodsListess.length;i++){
+          //                  if(goodsListess[i].category_banner_id !==''){
+          //                         arr[i] = goodsListess[i]
+          //                   }
+          //             } 
+          //             that.setData({
+          //                goodsListess:arr
+          //             })
 
-                  } 
-              });
+          //         } 
+          //     });
 
                   } 
               });
@@ -163,42 +166,45 @@ imgHeight:function(e){
 
    /*列表的几个点击事件*/
    navbarTap: function(e){ 
+    var  domain ='http://localhost:8088/';
     if (e.currentTarget.dataset.idx==0) {
-      var that =this
-       var urlsJing = 'https://zq.muyaonet.com/api/goods/getGoodsByBest'
-           wx.request({
-                  url :urlsJing,
-                  method : "POST",
-                  header: {'content-type': 'application/x-www-form-urlencoded'},
-                  data: {},
-                  success: function(reses){
-                      //console.log(reses)
-                      var goodsListess = reses.data.data.niu_index_response
-                      //console.log(goodsListess)
-                      var arr =new Array()
-                      for(var i=0;i<goodsListess.length;i++){
-                           if(goodsListess[i].category_banner_id !==''){
-                                  arr[i] = goodsListess[i]
-                            }
-                      } 
-                      that.setData({
-                         goodsListess:arr
-                      })
+      // var that =this
+      //  var urlsJing = 'https://zq.muyaonet.com/api/goods/getGoodsByBest'
+      //      wx.request({
+      //             url :urlsJing,
+      //             method : "POST",
+      //             header: {'content-type': 'application/x-www-form-urlencoded'},
+      //             data: {},
+      //             success: function(reses){
+      //                 //console.log(reses)
+      //                 var goodsListess = reses.data.data.niu_index_response
+      //                 //console.log(goodsListess)
+      //                 var arr =new Array()
+      //                 for(var i=0;i<goodsListess.length;i++){
+      //                      if(goodsListess[i].category_banner_id !==''){
+      //                             arr[i] = goodsListess[i]
+      //                       }
+      //                 } 
+      //                 that.setData({
+      //                    goodsListess:arr
+      //                 })
 
-                  } 
-              })
+      //             } 
+      //         })
 
 
     }else if (e.currentTarget.dataset.idx==1) {
-      var id =e.currentTarget.dataset.variable /*列表的id值*/
+      // 用名称 做唯一
+      var name =e.currentTarget.dataset.variable /*列表的id值*/
     //console.log(id)
     //获取二级列表的名字和id
-    var urls="https://zq.muyaonet.com/api/goods/goodsCategorySecondList?category_id="+id
+    // var urls="https://zq.muyaonet.com/api/goods/goodsCategorySecondList?category_id="+id
+     var  urls = domain + 'product/goodsCategorySecondList/name=' + name;
     var that =this
     wx.request({ 
           url : urls,
           success: function(reses){  
-             var goodsList= reses.data.data.niu_index_response
+             var goodsList= reses.data.data;
              console.log('二级商品')
              console.log(goodsList)
              that.setData({
@@ -207,29 +213,25 @@ imgHeight:function(e){
           } 
       }); 
 
-      var urlss="https://zq.muyaonet.com/api/goods/goodsHomeList"
-         var id =e.currentTarget.dataset.variable 
-         console.log('查看id是多少')
-         console.log(id)
+      // var urlss="https://zq.muyaonet.com/api/goods/goodsHomeList"
+        var urlss =  domain + 'product/goodsHomeList';
+
+        console.log('查看id是多少')
         wx.request({ 
               url : urlss,
               method : "POST",
               header: {'content-type': 'application/x-www-form-urlencoded'},
               data:{
-                category_id:id,
+                name:name,
               },
               success: function(reses){
-               var goodsList= reses.data.data.niu_index_response
+               var goodsList= reses.data.data
                var arr=new Array()
                for(var i=0;i<goodsList.length;i++){
-                     if(goodsList[i].category_banner_id !==''){
-                            arr[i] = goodsList[i]
-                      }
+                  arr[i] = goodsList[i]
                }
               
-               if (arr.category_banner_title==undefined) {
-                //console.log('这是空值')
-               }
+           
                console.log(arr)
                 that.setData({
                      goodsListess:arr
@@ -237,10 +239,11 @@ imgHeight:function(e){
               } 
           }); 
     }else if (e.currentTarget.dataset.idx==2){
-      var id =e.currentTarget.dataset.variable /*列表的id值*/
+      var name =e.currentTarget.dataset.variable /*列表的id值*/
     //console.log(id)
     //获取二级列表的名字和id
-   var urls="https://zq.muyaonet.com/api/goods/goodsCategorySecondList?category_id="+id
+  //  var urls="https://zq.muyaonet.com/api/goods/goodsCategorySecondList?category_id="+id
+  var  urls = domain + 'product/goodsCategorySecondList/name=' + name;
     var that =this
     wx.request({ 
           url : urls,
@@ -252,34 +255,35 @@ imgHeight:function(e){
              })    
           } 
       }); 
+      var urlss =  domain + 'product/goodsHomeList';
 
-      var urlss="https://zq.muyaonet.com/api/goods/goodsHomeList"
-         var id =e.currentTarget.dataset.variable 
-        wx.request({ 
-              url : urlss,
-              method : "POST",
-              header: {'content-type': 'application/x-www-form-urlencoded'},
-              data:{
-                category_id:id,
-              },
-              success: function(reses){
-               var goodsList= reses.data.data.niu_index_response         
-                var arr=new Array()
-               for(var i=0;i<goodsList.length;i++){
-                     if(goodsList[i].category_banner_id !==''){
-                            arr[i] = goodsList[i]
-                      }
-               }
-
-                that.setData({
-                     goodsListess:arr
-                 })    
-              } 
-          }); 
+      console.log('查看id是多少')
+      wx.request({ 
+            url : urlss,
+            method : "POST",
+            header: {'content-type': 'application/x-www-form-urlencoded'},
+            data:{
+              name:name,
+            },
+            success: function(reses){
+             var goodsList= reses.data.data
+             var arr=new Array()
+             for(var i=0;i<goodsList.length;i++){
+                arr[i] = goodsList[i]
+             }
+            
+         
+             console.log(arr)
+              that.setData({
+                   goodsListess:arr
+               })    
+            } 
+        }); 
     }else if (e.currentTarget.dataset.idx==3){
-       var id =e.currentTarget.dataset.variable /*列表的id值*/
+       var name =e.currentTarget.dataset.variable /*列表的id值*/
     //获取二级列表的名字和id
-   var urls="https://zq.muyaonet.com/api/goods/goodsCategorySecondList?category_id="+id
+  //  var urls="https://zq.muyaonet.com/api/goods/goodsCategorySecondList?category_id="+id
+    var  urls = domain + 'product/goodsCategorySecondList/name=' + name;
     var that =this
     wx.request({ 
           url : urls,
@@ -292,32 +296,35 @@ imgHeight:function(e){
           } 
       }); 
 
-      var urlss="https://zq.muyaonet.com/api/goods/goodsHomeList"
-         var id =e.currentTarget.dataset.variable 
+      var urlss =  domain + 'product/goodsHomeList';
+
+        console.log('查看id是多少')
         wx.request({ 
               url : urlss,
               method : "POST",
               header: {'content-type': 'application/x-www-form-urlencoded'},
               data:{
-                category_id:id,
+                name:name,
               },
               success: function(reses){
-               var goodsList= reses.data.data.niu_index_response
+               var goodsList= reses.data.data
                var arr=new Array()
                for(var i=0;i<goodsList.length;i++){
-                     if(goodsList[i].category_banner_id !==''){
-                            arr[i] = goodsList[i]
-                      }
+                  arr[i] = goodsList[i]
                }
+              
+           
+               console.log(arr)
                 that.setData({
                      goodsListess:arr
                  })    
               } 
           }); 
     }else if (e.currentTarget.dataset.idx==4) {
-      var id =e.currentTarget.dataset.variable /*列表的id值*/
+      var name =e.currentTarget.dataset.variable /*列表的id值*/
     //获取二级列表的名字和id
-   var urls="https://zq.muyaonet.com/api/goods/goodsCategorySecondList?category_id="+id
+  //  var urls="https://zq.muyaonet.com/api/goods/goodsCategorySecondList?category_id="+id
+   var  urls = domain + 'product/goodsCategorySecondList/id=' + id;
     var that =this
     wx.request({ 
           url : urls,
@@ -329,28 +336,30 @@ imgHeight:function(e){
              })    
           } 
       }); 
-      var urlss="https://zq.muyaonet.com/api/goods/goodsHomeList"
-         var id =e.currentTarget.dataset.variable 
-        wx.request({ 
-              url : urlss,
-              method : "POST",
-              header: {'content-type': 'application/x-www-form-urlencoded'},
-              data:{
-                category_id:id,
-              },
-              success: function(reses){
-               var goodsList= reses.data.data.niu_index_response
-               var arr=new Array()
-               for(var i=0;i<goodsList.length;i++){
-                     if(goodsList[i].category_banner_id !==''){
-                            arr[i] = goodsList[i]
-                      }
-               }
-                that.setData({
-                     goodsListess:arr
-                 })    
-              } 
-          }); 
+      var urlss =  domain + 'product/goodsHomeList';
+
+      console.log('查看id是多少')
+      wx.request({ 
+            url : urlss,
+            method : "POST",
+            header: {'content-type': 'application/x-www-form-urlencoded'},
+            data:{
+              name:name,
+            },
+            success: function(reses){
+             var goodsList= reses.data.data
+             var arr=new Array()
+             for(var i=0;i<goodsList.length;i++){
+                arr[i] = goodsList[i]
+             }
+            
+         
+             console.log(arr)
+              that.setData({
+                   goodsListess:arr
+               })    
+            } 
+        }); 
     } 
     this.setData({
       currentTab: e.currentTarget.dataset.idx

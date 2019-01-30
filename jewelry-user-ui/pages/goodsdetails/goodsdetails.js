@@ -43,19 +43,15 @@ Page({
       var id = option.id
       //console.log(id)
       //console.log('商品的id')
-      var urls="https://zq.muyaonet.com/api/index/getgoodsinfo" //商品详情
+  
+      var urls="http://localhost:8088/product/one/id=" + id //商品详情
       wx.request({
           url :urls,
-          method : "POST",
-          header: {'Content-Type': 'application/x-www-form-urlencoded'},
-          data: {
-              'id':id,
-          },
           success: function(reses){
               //console.log(reses)
              //console.log('北京商品详情')
-              console.log(reses.data.data.niu_index_response.goods_detail)
-              var goodsDetail = reses.data.data.niu_index_response.goods_detail
+              // console.log(reses.data.data.niu_index_response.goods_detail)
+              var goodsDetail = reses.data.data;
               wx.setStorageSync('goodsDetail', goodsDetail)
               that.setData({
                 goodsDetail:goodsDetail,

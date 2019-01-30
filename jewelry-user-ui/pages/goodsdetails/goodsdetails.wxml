@@ -13,8 +13,8 @@
 
   <scroll-view scroll-y="true">
   <view class="detail">
-    <view class="title">{{goodsDetail.goods_name}}</view>
-    <view class="pricesess">￥{{goodsDetail.promotion_price}}</view>
+    <view class="title">{{goodsDetail.name}}</view>
+    <view class="pricesess">￥{{goodsDetail.price}}</view>
   </view>
 </scroll-view>
   <view class="separate"></view>
@@ -74,7 +74,7 @@
                    单价:
              </view>
              <view class="pricees">       
-                  ¥ {{goodsDetail.promotion_price}}
+                  ¥ {{goodsDetail.price}}
              </view>
          </view>
           <view class="prices">
